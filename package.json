@@ -1,11 +1,12 @@
 {
   "name": "jetend",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "type": "module",
   "description": "A lightweight backend toolkit to simplify and accelerate backend development — just like Tailwind, but for APIs.",
   "main": "index.js",
   "exports": {
     ".": "./index.js",
-    "./routes": "./routes/index.js",
+    "./router": "./router/index.mjs",
     "./database": "./database/index.js",
     "./auth": "./auth/index.js"
   },
@@ -30,7 +31,6 @@
     "url": "https://github.com/himanshu-sheetlani/jetend/issues"
   },
   "homepage": "https://github.com/himanshu-sheetlani/jetend#readme",
-  "type": "module",
   "dependencies": {
     "express": "^4.18.2",
     "dotenv": "^16.3.1"
