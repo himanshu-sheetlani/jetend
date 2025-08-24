@@ -2,7 +2,7 @@
   "name": "jetend",
   "version": "1.0.0",
   "type": "module",
-  "description": "A lightweight backend toolkit to simplify and accelerate backend development — just like Tailwind, but for APIs.",
+  "description": "A lightweight backend toolkit to simplify and accelerate backend development — just like Tailwind, but for backend.",
   "main": "index.js",
   "exports": {
     ".": "./index.js",
@@ -39,7 +39,8 @@
     "js": "^0.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.17.2",
-    "mysql2": "^3.14.3"
+    "mysql2": "^3.14.3",
+    "nodemailer": "^7.0.5"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
