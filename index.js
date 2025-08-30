@@ -1,20 +1,11 @@
-import './test.js'; // or './showcase.js'
-import app from './lib/router/_app.js';
-import get from './lib/router/get.js';
-import post from './lib/router/post.js';
-import patch from './lib/router/patch.js';
-import del from './lib/router/delete.js';
-import db from './lib/db/_app.js';
+// jetend/index.js  (main entry for the package)
 
-export default {
-  get,
-  post,
-  patch,
-  del,
-  db,
-};
+// Router
+// index.js (root of JetEnd)
+import db from "./lib/db/_app.js";
+import * as auth from "./lib/auth/_app.js";
+import * as router from "./lib/router/_app.js";
+import * as utils from "./lib/utils/_app.js";
 
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-  console.log(`🚀 Jetend server running at http://localhost:${PORT}`);
-});
+export const { get, post, patch, del } = router;
+export { db, auth, router, utils };
