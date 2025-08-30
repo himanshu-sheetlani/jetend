@@ -25,7 +25,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/himanshu-sheetlani/jetend"
+    "url": "git+https://github.com/himanshu-sheetlani/jetend.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "bugs": {
     "url": "https://github.com/himanshu-sheetlani/jetend/issues"
