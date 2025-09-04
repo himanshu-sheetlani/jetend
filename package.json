@@ -28,7 +28,7 @@
     "url": "git+https://github.com/himanshu-sheetlani/jetend.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "bugs": {
     "url": "https://github.com/himanshu-sheetlani/jetend/issues"
