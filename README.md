@@ -1,12 +1,22 @@
-# Jetend 🚀  
-*A utility-first Node.js toolkit for building Express.js backends faster.*
+<div align="center">
+  <img src="https://jetend.vercel.app/assets/logo-BbKN1f03.png" alt="Jetend Logo" width="150" />
+  <h1>Jetend 🚀</h1>
+  <p><em>A utility-first Node.js toolkit for building Express.js backends faster.</em></p>
+  <p><strong><a href="https://jetend.vercel.app">Official Website & Documentation</a></strong></p>
+  
+  [![npm version](https://img.shields.io/npm/v/jetend.svg?style=flat-square)](https://www.npmjs.com/package/jetend)
+  [![npm downloads](https://img.shields.io/npm/dm/jetend.svg?style=flat-square)](https://www.npmjs.com/package/jetend)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+</div>
 
 Jetend simplifies backend development with **one-liner utilities** for routing, database operations (SQL + MongoDB), authentication, validation, responses, and email sending. Think of it as a **toolbox for Express developers** who want to move fast without reinventing the wheel.
 
 ---
 
 ## ✨ Features
+
 - ⚡ Minimal routing (`get`, `post`, `patch`, `del`)
+- 🌱 Start a server with one line (`start(port)`)
 - 🗄️ Database utilities for **SQL** and **MongoDB**
 - 🔐 Authentication helpers (bcrypt + JWT)
 - ✅ Request validation with simple rules
@@ -17,14 +27,17 @@ Jetend simplifies backend development with **one-liner utilities** for routing, 
 ---
 
 ## 📦 Installation
+
 ```bash
 npm install jetend
 ```
 
 ## 🚀 Quick Start
-```js
-import { get, post } from "jetend";
 
+```js
+import { get, post, start } from "jetend";
+
+// Basic routing
 get("/hello", ({ res }) => {
   res.json({ message: "Hello from Jetend 🚀" });
 });
@@ -32,13 +45,33 @@ get("/hello", ({ res }) => {
 post("/data", ({ req, res }) => {
   res.status(201).json(req.body);
 });
+
+// Start the server
+start(3000);
+// 🚀 Jetend server running at http://localhost:3000
 ```
+
 Run your server with Express, and Jetend plugs right in.
 
 ---
 
 ## 📚 Usage Guide
-### 1. Routing
+
+### 1. Starting the Server
+
+You can quickly spin up a local server using the `start(port)` method. Simply pass the desired port number to start listening for incoming requests.
+
+```javascript
+import { start } from "jetend";
+
+const PORT = 3000;
+start(PORT); // 🚀 Jetend server running at http://localhost:3000
+```
+
+##
+
+### 2. Routing
+
 ```js
 import { get, post, patch, del } from "jetend";
 
@@ -47,9 +80,13 @@ post("/users", ({ req, res }) => res.status(201).json(req.body));
 patch("/users/:id", ({ req, res }) => res.json({ updated: req.params.id }));
 del("/users/:id", ({ req, res }) => res.json({ deleted: req.params.id }));
 ```
+
 ##
-### 2. Database
+
+### 3. Database
+
 #### SQL
+
 ```js
 import db from "jetend";
 
@@ -57,13 +94,14 @@ await db.sql.connect({
   host: "localhost",
   user: "root",
   database: "test",
-  password: "1234"
+  password: "1234",
 });
 
 const users = await db.sql.query("SELECT * FROM users");
 ```
 
 #### MongoDB
+
 ```js
 await db.mongo.connect("mongodb://127.0.0.1:27017/test");
 
@@ -77,13 +115,15 @@ await db.mongo.delete(User, { _id });
 ```
 
 ##
-### 3. Authentication
+
+### 4. Authentication
+
 ```js
 import {
   hashPassword,
   comparePassword,
   generateJWT,
-  requireAuth
+  requireAuth,
 } from "jetend";
 
 const JWT_SECRET = process.env.JWT_SECRET || "supersecret";
@@ -106,7 +146,9 @@ get("/me", requireAuth(JWT_SECRET), ({ req, res }) => {
 ```
 
 ##
-### 4. Validation
+
+### 5. Validation
+
 ```js
 import { validate } from "jetend";
 
@@ -118,7 +160,9 @@ validate(req.body, {
 ```
 
 ##
-### 5. Responses
+
+### 6. Responses
+
 ```js
 import { success, error } from "jetend";
 
@@ -127,15 +171,17 @@ return error(res, "User not found", 404);
 ```
 
 ##
-### 6. Email Sending
-``` js 
+
+### 7. Email Sending
+
+```js
 import { sendEmail } from "jetend";
 
 await sendEmail(
-  process.env.EMAIL,        // sender
+  process.env.EMAIL, // sender
   process.env.APP_PASSWORD, // app password
   "receiver@mail.com",
   "Welcome to Jetend 🚀",
-  "<h1>Hello World</h1>"
+  "<h1>Hello World</h1>",
 );
 ```
