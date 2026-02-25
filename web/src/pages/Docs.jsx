@@ -178,7 +178,7 @@ export default function Docs() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-800/50 border border-zinc-700 text-zinc-300 text-sm font-medium mb-6 shadow-sm">
             <Zap size={14} className="text-zinc-400" />
-            v1.0.2
+            v1.0.4
           </div>
           <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-zinc-100">
             JetEnd{" "}

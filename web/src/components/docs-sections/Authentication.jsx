@@ -79,7 +79,7 @@ export default function Authentication() {
         </p>
         <CodeBlock
           language="javascript"
-          code={`import { generateJWT } from 'jetend';\n\n// Basic usage (assumes process.env.JWT_SECRET exists)\nconst token = generateJWT({ id: 1, name: "Jet" });\n\n// Custom secret and expiration\nconst customToken = generateJWT(\n  { role: "admin" }, \n  "my-custom-secret-key", \n  { expiresIn: "2h" }\n);`}
+          code={`import { generateJWT } from 'jetend';\n\n// Basic usage (assumes process.env.JWT_SECRET exists)\nconst token = generateJWT({ id: 1, name: "Jet" }, "my-custom-secret-key");\n\n// Custom expiration\nconst customToken = generateJWT(\n  { role: "admin" }, \n  "my-custom-secret-key", \n  { expiresIn: "2h" }\n);`}
         />
 
         <h4 className="flex items-center gap-3 text-xl font-medium text-zinc-300 mt-10 mb-4">
@@ -93,6 +93,17 @@ export default function Authentication() {
           middleware. When a token is successfully verified, the decoded payload
           becomes accessible via <code>req.user</code>.
         </p>
+
+        <div className="mt-6 p-6 rounded-2xl bg-zinc-900 border border-zinc-800 shadow-[0_4px_20px_rgba(0,0,0,0.2)] flex gap-4 items-start relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-zinc-400 to-zinc-600"></div>
+          <div className="flex-1">
+            <h4 className="text-zinc-200 font-semibold mb-2">Authorization Header</h4>
+            <p className="text-sm text-zinc-400 mb-3">
+              Send the JWT in the <strong>Authorization</strong> header as a Bearer token. <br />
+            Authorization: Bearer {'<token>'} </p>
+          </div>
+        </div>
+
         <CodeBlock
           language="javascript"
           code={`import { get, requireAuth } from 'jetend';\n\nget("/profile", requireAuth("my-custom-secret-key"), ({ req, res }) => {\n  // req.user is automatically populated by the middleware\n  res.json({ \n    message: "Welcome to your profile", \n    user: req.user \n  }); \n});`}
