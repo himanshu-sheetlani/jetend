@@ -23,7 +23,7 @@ export default function CodeComparison() {
               <div className="w-3 h-3 rounded-full bg-[#f59e0b]" />
               <div className="w-3 h-3 rounded-full bg-[#10b981]" />
               <span className="ml-2 text-xs font-mono text-[#a1a1aa]">
-                The Old Way (Express + Joi)
+                The Old Way
               </span>
             </div>
             <div className="p-6 overflow-x-auto text-sm">
