@@ -7,7 +7,7 @@ import * as router from "./lib/router/_app.js";
 import * as utils from "./lib/utils/_app.js";
 
 export const { hashPassword, comparePassword, generateJWT, verifyJWT, requireAuth} = auth;
-export const { get, post, patch, del } = router;
+export const { get, post, patch, del, start } = router;
 export const { validate, success, error, sendEmail} = utils;
 
 export { db, auth, router, utils };
