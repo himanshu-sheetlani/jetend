@@ -1,6 +1,6 @@
 {
   "name": "jetend",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "description": "A lightweight backend toolkit to simplify and accelerate backend development — just like Tailwind, but for backend.",
   "main": "index.js",
